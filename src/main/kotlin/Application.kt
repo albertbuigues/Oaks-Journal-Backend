@@ -31,6 +31,7 @@ fun Application.module() {
         launch(Dispatchers.IO) {
             transaction {
                 PokemonTable.deleteAll()
+                commit()
             }
             fetchKantoPokemon()
         }
@@ -46,7 +47,7 @@ fun initDatabase() {
 }
 
 fun saveToLocalDatabase(pokemonList: List<PokemonDto>) {
-    transactionScope {
+    transaction {
         PokemonTable.batchInsert(pokemonList) { pokemon ->
             this[PokemonTable.id] = pokemon.id
             this[PokemonTable.name] = pokemon.name
