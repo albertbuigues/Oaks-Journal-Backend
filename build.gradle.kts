@@ -27,12 +27,16 @@ dependencies {
     implementation(libs.ktor.client.content.negotiation)
     implementation(libs.ktor.client.logging)
     implementation(libs.ktor.serialization.kotlinx.json)
+    // Server
+    implementation(libs.ktor.server.content.negotiation)
     // Exposed
     implementation("org.jetbrains.exposed:exposed-core:0.50.1")
     implementation("org.jetbrains.exposed:exposed-dao:0.50.1")
     implementation("org.jetbrains.exposed:exposed-jdbc:0.50.1")
     // Driver SQLite
     implementation("org.xerial:sqlite-jdbc:3.45.1.0")
+    // Gemini
+    implementation(libs.gemini)
 
     testImplementation(libs.ktor.server.test.host)
     testImplementation(libs.kotlin.test.junit)
